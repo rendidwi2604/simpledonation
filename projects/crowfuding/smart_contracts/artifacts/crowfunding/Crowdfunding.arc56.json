@@ -1,0 +1,231 @@
+{
+    "name": "Crowdfunding",
+    "structs": {},
+    "methods": [
+        {
+            "name": "hello",
+            "args": [
+                {
+                    "type": "string",
+                    "name": "name"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "events": [],
+            "recommendations": {}
+        },
+        {
+            "name": "donate",
+            "args": [
+                {
+                    "type": "pay",
+                    "name": "payment"
+                }
+            ],
+            "returns": {
+                "type": "string"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "events": [],
+            "recommendations": {}
+        },
+        {
+            "name": "get_total_donations",
+            "args": [],
+            "returns": {
+                "type": "uint64"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "events": [],
+            "recommendations": {}
+        },
+        {
+            "name": "get_donor_count",
+            "args": [],
+            "returns": {
+                "type": "uint64"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "events": [],
+            "recommendations": {}
+        },
+        {
+            "name": "get_donation_info",
+            "args": [],
+            "returns": {
+                "type": "string"
+            },
+            "actions": {
+                "create": [],
+                "call": [
+                    "NoOp"
+                ]
+            },
+            "readonly": false,
+            "events": [],
+            "recommendations": {}
+        }
+    ],
+    "arcs": [
+        22,
+        28
+    ],
+    "networks": {},
+    "state": {
+        "schema": {
+            "global": {
+                "ints": 2,
+                "bytes": 0
+            },
+            "local": {
+                "ints": 0,
+                "bytes": 0
+            }
+        },
+        "keys": {
+            "global": {
+                "total_donations": {
+                    "keyType": "AVMString",
+                    "valueType": "AVMUint64",
+                    "key": "dG90YWxfZG9uYXRpb25z"
+                },
+                "donor_count": {
+                    "keyType": "AVMString",
+                    "valueType": "AVMUint64",
+                    "key": "ZG9ub3JfY291bnQ="
+                }
+            },
+            "local": {},
+            "box": {}
+        },
+        "maps": {
+            "global": {},
+            "local": {},
+            "box": {}
+        }
+    },
+    "bareActions": {
+        "create": [
+            "NoOp"
+        ],
+        "call": []
+    },
+    "sourceInfo": {
+        "approval": {
+            "sourceInfo": [
+                {
+                    "pc": [
+                        207
+                    ],
+                    "errorMessage": "Donation must be greater than 0"
+                },
+                {
+                    "pc": [
+                        48
+                    ],
+                    "errorMessage": "OnCompletion must be NoOp"
+                },
+                {
+                    "pc": [
+                        139
+                    ],
+                    "errorMessage": "OnCompletion must be NoOp && can only call when creating"
+                },
+                {
+                    "pc": [
+                        203
+                    ],
+                    "errorMessage": "Payment must be to this contract"
+                },
+                {
+                    "pc": [
+                        219,
+                        276
+                    ],
+                    "errorMessage": "check self.donor_count exists"
+                },
+                {
+                    "pc": [
+                        211,
+                        265
+                    ],
+                    "errorMessage": "check self.total_donations exists"
+                },
+                {
+                    "pc": [
+                        147
+                    ],
+                    "errorMessage": "invalid array length header"
+                },
+                {
+                    "pc": [
+                        155
+                    ],
+                    "errorMessage": "invalid number of bytes for arc4.dynamic_array<arc4.uint8>"
+                },
+                {
+                    "pc": [
+                        169
+                    ],
+                    "errorMessage": "max array length exceeded"
+                },
+                {
+                    "pc": [
+                        196
+                    ],
+                    "errorMessage": "transaction type is pay"
+                }
+            ],
+            "pcOffsetMethod": "none"
+        },
+        "clear": {
+            "sourceInfo": [],
+            "pcOffsetMethod": "none"
+        }
+    },
+    "source": {
+        "approval": "I3ByYWdtYSB2ZXJzaW9uIDExCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBhbGdvcHkuYXJjNC5BUkM0Q29udHJhY3QuYXBwcm92YWxfcHJvZ3JhbSgpIC0+IHVpbnQ2NDoKbWFpbjoKICAgIGludGNibG9jayAxIDAKICAgIGJ5dGVjYmxvY2sgMHgxNTFmN2M3NSAidG90YWxfZG9uYXRpb25zIiAiZG9ub3JfY291bnQiCiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6NAogICAgLy8gY2xhc3MgQ3Jvd2RmdW5kaW5nKEFSQzRDb250cmFjdCk6CiAgICB0eG4gTnVtQXBwQXJncwogICAgYnogbWFpbl9fX2FsZ29weV9kZWZhdWx0X2NyZWF0ZUAxNAogICAgdHhuIE9uQ29tcGxldGlvbgogICAgIQogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBtdXN0IGJlIE5vT3AKICAgIHR4biBBcHBsaWNhdGlvbklECiAgICBhc3NlcnQKICAgIHB1c2hieXRlc3MgMHgwMmJlY2UxMSAweDA4MWMwMjEzIDB4OWZkNmM5NzggMHg5YzgxZDI0ZSAweDhhODU2ZDQ3IC8vIG1ldGhvZCAiaGVsbG8oc3RyaW5nKXN0cmluZyIsIG1ldGhvZCAiZG9uYXRlKHBheSlzdHJpbmciLCBtZXRob2QgImdldF90b3RhbF9kb25hdGlvbnMoKXVpbnQ2NCIsIG1ldGhvZCAiZ2V0X2Rvbm9yX2NvdW50KCl1aW50NjQiLCBtZXRob2QgImdldF9kb25hdGlvbl9pbmZvKClzdHJpbmciCiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAwCiAgICBtYXRjaCBoZWxsbyBkb25hdGUgZ2V0X3RvdGFsX2RvbmF0aW9ucyBnZXRfZG9ub3JfY291bnQgbWFpbl9nZXRfZG9uYXRpb25faW5mb19yb3V0ZUAxMAogICAgZXJyCgptYWluX2dldF9kb25hdGlvbl9pbmZvX3JvdXRlQDEwOgogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjQ0CiAgICAvLyBAYWJpbWV0aG9kKCkKICAgIHB1c2hieXRlcyAweDE1MWY3Yzc1NDQ2ZjZlNjE3NDY5NmY2ZTIwNjM2ZjZlNzQ3MjYxNjM3NDIwNjk3MzIwNjE2Mzc0Njk3NjY1MjEKICAgIGxvZwogICAgaW50Y18wIC8vIDEKICAgIHJldHVybgoKbWFpbl9fX2FsZ29weV9kZWZhdWx0X2NyZWF0ZUAxNDoKICAgIHR4biBPbkNvbXBsZXRpb24KICAgICEKICAgIHR4biBBcHBsaWNhdGlvbklECiAgICAhCiAgICAmJgogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBtdXN0IGJlIE5vT3AgJiYgY2FuIG9ubHkgY2FsbCB3aGVuIGNyZWF0aW5nCiAgICBpbnRjXzAgLy8gMQogICAgcmV0dXJuCgoKLy8gc21hcnRfY29udHJhY3RzLmNyb3dmdW5kaW5nLmNvbnRyYWN0LkNyb3dkZnVuZGluZy5oZWxsb1tyb3V0aW5nXSgpIC0+IHZvaWQ6CmhlbGxvOgogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjEyCiAgICAvLyBAYWJpbWV0aG9kKCkKICAgIHR4bmEgQXBwbGljYXRpb25BcmdzIDEKICAgIGR1cAogICAgaW50Y18xIC8vIDAKICAgIGV4dHJhY3RfdWludDE2IC8vIG9uIGVycm9yOiBpbnZhbGlkIGFycmF5IGxlbmd0aCBoZWFkZXIKICAgIHB1c2hpbnQgMiAvLyAyCiAgICArCiAgICBkaWcgMQogICAgbGVuCiAgICA9PQogICAgYXNzZXJ0IC8vIGludmFsaWQgbnVtYmVyIG9mIGJ5dGVzIGZvciBhcmM0LmR5bmFtaWNfYXJyYXk8YXJjNC51aW50OD4KICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jcm93ZnVuZGluZy9jb250cmFjdC5weToxNQogICAgLy8gcmV0dXJuIFN0cmluZy5mcm9tX2J5dGVzKGIiSGVsbG8sICIpICsgbmFtZQogICAgZXh0cmFjdCAyIDAKICAgIHB1c2hieXRlcyAweDQ4NjU2YzZjNmYyYzIwCiAgICBzd2FwCiAgICBjb25jYXQgLy8gb24gZXJyb3I6IG1heCBhcnJheSBsZW5ndGggZXhjZWVkZWQKICAgIGR1cAogICAgZXh0cmFjdCAyIDAKICAgIGxlbgogICAgaXRvYgogICAgZXh0cmFjdCA2IDIKICAgIHJlcGxhY2UyIDAKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jcm93ZnVuZGluZy9jb250cmFjdC5weToxMgogICAgLy8gQGFiaW1ldGhvZCgpCiAgICBieXRlY18wIC8vIDB4MTUxZjdjNzUKICAgIHN3YXAKICAgIGNvbmNhdAogICAgbG9nCiAgICBpbnRjXzAgLy8gMQogICAgcmV0dXJuCgoKLy8gc21hcnRfY29udHJhY3RzLmNyb3dmdW5kaW5nLmNvbnRyYWN0LkNyb3dkZnVuZGluZy5kb25hdGVbcm91dGluZ10oKSAtPiB2b2lkOgpkb25hdGU6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6MTcKICAgIC8vIEBhYmltZXRob2QoKQogICAgdHhuIEdyb3VwSW5kZXgKICAgIGludGNfMCAvLyAxCiAgICAtCiAgICBkdXAKICAgIGd0eG5zIFR5cGVFbnVtCiAgICBpbnRjXzAgLy8gcGF5CiAgICA9PQogICAgYXNzZXJ0IC8vIHRyYW5zYWN0aW9uIHR5cGUgaXMgcGF5CiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6MjAtMjEKICAgIC8vICMgVmVyaWZ5IHBheW1lbnQgaXMgc2VudCB0byB0aGlzIGNvbnRyYWN0CiAgICAvLyBhc3NlcnQgcGF5bWVudC5yZWNlaXZlciA9PSBHbG9iYWwuY3VycmVudF9hcHBsaWNhdGlvbl9hZGRyZXNzLCAiUGF5bWVudCBtdXN0IGJlIHRvIHRoaXMgY29udHJhY3QiCiAgICBkdXAKICAgIGd0eG5zIFJlY2VpdmVyCiAgICBnbG9iYWwgQ3VycmVudEFwcGxpY2F0aW9uQWRkcmVzcwogICAgPT0KICAgIGFzc2VydCAvLyBQYXltZW50IG11c3QgYmUgdG8gdGhpcyBjb250cmFjdAogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjIzLTI0CiAgICAvLyAjIFZlcmlmeSBhbW91bnQgaXMgZ3JlYXRlciB0aGFuIDAKICAgIC8vIGFzc2VydCBwYXltZW50LmFtb3VudCA+IDAsICJEb25hdGlvbiBtdXN0IGJlIGdyZWF0ZXIgdGhhbiAwIgogICAgZ3R4bnMgQW1vdW50CiAgICBkdXAKICAgIGFzc2VydCAvLyBEb25hdGlvbiBtdXN0IGJlIGdyZWF0ZXIgdGhhbiAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6MjYtMjcKICAgIC8vICMgVXBkYXRlIHRvdGFsIGRvbmF0aW9ucwogICAgLy8gc2VsZi50b3RhbF9kb25hdGlvbnMudmFsdWUgKz0gcGF5bWVudC5hbW91bnQKICAgIGludGNfMSAvLyAwCiAgICBieXRlY18xIC8vICJ0b3RhbF9kb25hdGlvbnMiCiAgICBhcHBfZ2xvYmFsX2dldF9leAogICAgYXNzZXJ0IC8vIGNoZWNrIHNlbGYudG90YWxfZG9uYXRpb25zIGV4aXN0cwogICAgKwogICAgYnl0ZWNfMSAvLyAidG90YWxfZG9uYXRpb25zIgogICAgc3dhcAogICAgYXBwX2dsb2JhbF9wdXQKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jcm93ZnVuZGluZy9jb250cmFjdC5weToyOS0zMAogICAgLy8gIyBJbmNyZW1lbnQgZG9ub3IgY291bnQKICAgIC8vIHNlbGYuZG9ub3JfY291bnQudmFsdWUgKz0gVUludDY0KDEpCiAgICBpbnRjXzEgLy8gMAogICAgYnl0ZWNfMiAvLyAiZG9ub3JfY291bnQiCiAgICBhcHBfZ2xvYmFsX2dldF9leAogICAgYXNzZXJ0IC8vIGNoZWNrIHNlbGYuZG9ub3JfY291bnQgZXhpc3RzCiAgICBpbnRjXzAgLy8gMQogICAgKwogICAgYnl0ZWNfMiAvLyAiZG9ub3JfY291bnQiCiAgICBzd2FwCiAgICBhcHBfZ2xvYmFsX3B1dAogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjE3CiAgICAvLyBAYWJpbWV0aG9kKCkKICAgIHB1c2hieXRlcyAweDE1MWY3Yzc1NTQ2ODYxNmU2YjIwNzk2Zjc1MjA2NjZmNzIyMDc5NmY3NTcyMjA2NDZmNmU2MTc0Njk2ZjZlMjEKICAgIGxvZwogICAgaW50Y18wIC8vIDEKICAgIHJldHVybgoKCi8vIHNtYXJ0X2NvbnRyYWN0cy5jcm93ZnVuZGluZy5jb250cmFjdC5Dcm93ZGZ1bmRpbmcuZ2V0X3RvdGFsX2RvbmF0aW9uc1tyb3V0aW5nXSgpIC0+IHZvaWQ6CmdldF90b3RhbF9kb25hdGlvbnM6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6MzcKICAgIC8vIHJldHVybiBBUkM0VUludDY0KHNlbGYudG90YWxfZG9uYXRpb25zLnZhbHVlKQogICAgaW50Y18xIC8vIDAKICAgIGJ5dGVjXzEgLy8gInRvdGFsX2RvbmF0aW9ucyIKICAgIGFwcF9nbG9iYWxfZ2V0X2V4CiAgICBhc3NlcnQgLy8gY2hlY2sgc2VsZi50b3RhbF9kb25hdGlvbnMgZXhpc3RzCiAgICBpdG9iCiAgICAvLyBzbWFydF9jb250cmFjdHMvY3Jvd2Z1bmRpbmcvY29udHJhY3QucHk6MzQKICAgIC8vIEBhYmltZXRob2QoKQogICAgYnl0ZWNfMCAvLyAweDE1MWY3Yzc1CiAgICBzd2FwCiAgICBjb25jYXQKICAgIGxvZwogICAgaW50Y18wIC8vIDEKICAgIHJldHVybgoKCi8vIHNtYXJ0X2NvbnRyYWN0cy5jcm93ZnVuZGluZy5jb250cmFjdC5Dcm93ZGZ1bmRpbmcuZ2V0X2Rvbm9yX2NvdW50W3JvdXRpbmddKCkgLT4gdm9pZDoKZ2V0X2Rvbm9yX2NvdW50OgogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjQyCiAgICAvLyByZXR1cm4gQVJDNFVJbnQ2NChzZWxmLmRvbm9yX2NvdW50LnZhbHVlKQogICAgaW50Y18xIC8vIDAKICAgIGJ5dGVjXzIgLy8gImRvbm9yX2NvdW50IgogICAgYXBwX2dsb2JhbF9nZXRfZXgKICAgIGFzc2VydCAvLyBjaGVjayBzZWxmLmRvbm9yX2NvdW50IGV4aXN0cwogICAgaXRvYgogICAgLy8gc21hcnRfY29udHJhY3RzL2Nyb3dmdW5kaW5nL2NvbnRyYWN0LnB5OjM5CiAgICAvLyBAYWJpbWV0aG9kKCkKICAgIGJ5dGVjXzAgLy8gMHgxNTFmN2M3NQogICAgc3dhcAogICAgY29uY2F0CiAgICBsb2cKICAgIGludGNfMCAvLyAxCiAgICByZXR1cm4K",
+        "clear": "I3ByYWdtYSB2ZXJzaW9uIDExCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBhbGdvcHkuYXJjNC5BUkM0Q29udHJhY3QuY2xlYXJfc3RhdGVfcHJvZ3JhbSgpIC0+IHVpbnQ2NDoKbWFpbjoKICAgIHB1c2hpbnQgMSAvLyAxCiAgICByZXR1cm4K"
+    },
+    "byteCode": {
+        "approval": "CyACAQAmAwQVH3x1D3RvdGFsX2RvbmF0aW9ucwtkb25vcl9jb3VudDEbQQBXMRkURDEYRIIFBAK+zhEECBwCEwSf1sl4BJyB0k4EioVtRzYaAI4FADAAXQCoALMAAQCAIBUffHVEb25hdGlvbiBjb250cmFjdCBpcyBhY3RpdmUhsCJDMRkUMRgUEEQiQzYaAUkjWYECCEsBFRJEVwIAgAdIZWxsbywgTFBJVwIAFRZXBgJcAChMULAiQzEWIglJOBAiEkRJOAcyChJEOAhJRCMpZUQIKUxnIyplRCIIKkxngCAVH3x1VGhhbmsgeW91IGZvciB5b3VyIGRvbmF0aW9uIbAiQyMpZUQWKExQsCJDIyplRBYoTFCwIkM=",
+        "clear": "C4EBQw=="
+    },
+    "compilerInfo": {
+        "compiler": "puya",
+        "compilerVersion": {
+            "major": 5,
+            "minor": 4,
+            "patch": 0
+        }
+    },
+    "events": [],
+    "templateVariables": {}
+}

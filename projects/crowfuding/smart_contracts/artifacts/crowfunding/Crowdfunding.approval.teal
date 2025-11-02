@@ -1,0 +1,169 @@
+#pragma version 11
+#pragma typetrack false
+
+// algopy.arc4.ARC4Contract.approval_program() -> uint64:
+main:
+    intcblock 1 0
+    bytecblock 0x151f7c75 "total_donations" "donor_count"
+    // smart_contracts/crowfunding/contract.py:4
+    // class Crowdfunding(ARC4Contract):
+    txn NumAppArgs
+    bz main___algopy_default_create@14
+    txn OnCompletion
+    !
+    assert // OnCompletion must be NoOp
+    txn ApplicationID
+    assert
+    pushbytess 0x02bece11 0x081c0213 0x9fd6c978 0x9c81d24e 0x8a856d47 // method "hello(string)string", method "donate(pay)string", method "get_total_donations()uint64", method "get_donor_count()uint64", method "get_donation_info()string"
+    txna ApplicationArgs 0
+    match hello donate get_total_donations get_donor_count main_get_donation_info_route@10
+    err
+
+main_get_donation_info_route@10:
+    // smart_contracts/crowfunding/contract.py:44
+    // @abimethod()
+    pushbytes 0x151f7c75446f6e6174696f6e20636f6e74726163742069732061637469766521
+    log
+    intc_0 // 1
+    return
+
+main___algopy_default_create@14:
+    txn OnCompletion
+    !
+    txn ApplicationID
+    !
+    &&
+    assert // OnCompletion must be NoOp && can only call when creating
+    intc_0 // 1
+    return
+
+
+// smart_contracts.crowfunding.contract.Crowdfunding.hello[routing]() -> void:
+hello:
+    // smart_contracts/crowfunding/contract.py:12
+    // @abimethod()
+    txna ApplicationArgs 1
+    dup
+    intc_1 // 0
+    extract_uint16 // on error: invalid array length header
+    pushint 2 // 2
+    +
+    dig 1
+    len
+    ==
+    assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>
+    // smart_contracts/crowfunding/contract.py:15
+    // return String.from_bytes(b"Hello, ") + name
+    extract 2 0
+    pushbytes 0x48656c6c6f2c20
+    swap
+    concat // on error: max array length exceeded
+    dup
+    extract 2 0
+    len
+    itob
+    extract 6 2
+    replace2 0
+    // smart_contracts/crowfunding/contract.py:12
+    // @abimethod()
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_0 // 1
+    return
+
+
+// smart_contracts.crowfunding.contract.Crowdfunding.donate[routing]() -> void:
+donate:
+    // smart_contracts/crowfunding/contract.py:17
+    // @abimethod()
+    txn GroupIndex
+    intc_0 // 1
+    -
+    dup
+    gtxns TypeEnum
+    intc_0 // pay
+    ==
+    assert // transaction type is pay
+    // smart_contracts/crowfunding/contract.py:20-21
+    // # Verify payment is sent to this contract
+    // assert payment.receiver == Global.current_application_address, "Payment must be to this contract"
+    dup
+    gtxns Receiver
+    global CurrentApplicationAddress
+    ==
+    assert // Payment must be to this contract
+    // smart_contracts/crowfunding/contract.py:23-24
+    // # Verify amount is greater than 0
+    // assert payment.amount > 0, "Donation must be greater than 0"
+    gtxns Amount
+    dup
+    assert // Donation must be greater than 0
+    // smart_contracts/crowfunding/contract.py:26-27
+    // # Update total donations
+    // self.total_donations.value += payment.amount
+    intc_1 // 0
+    bytec_1 // "total_donations"
+    app_global_get_ex
+    assert // check self.total_donations exists
+    +
+    bytec_1 // "total_donations"
+    swap
+    app_global_put
+    // smart_contracts/crowfunding/contract.py:29-30
+    // # Increment donor count
+    // self.donor_count.value += UInt64(1)
+    intc_1 // 0
+    bytec_2 // "donor_count"
+    app_global_get_ex
+    assert // check self.donor_count exists
+    intc_0 // 1
+    +
+    bytec_2 // "donor_count"
+    swap
+    app_global_put
+    // smart_contracts/crowfunding/contract.py:17
+    // @abimethod()
+    pushbytes 0x151f7c755468616e6b20796f7520666f7220796f757220646f6e6174696f6e21
+    log
+    intc_0 // 1
+    return
+
+
+// smart_contracts.crowfunding.contract.Crowdfunding.get_total_donations[routing]() -> void:
+get_total_donations:
+    // smart_contracts/crowfunding/contract.py:37
+    // return ARC4UInt64(self.total_donations.value)
+    intc_1 // 0
+    bytec_1 // "total_donations"
+    app_global_get_ex
+    assert // check self.total_donations exists
+    itob
+    // smart_contracts/crowfunding/contract.py:34
+    // @abimethod()
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_0 // 1
+    return
+
+
+// smart_contracts.crowfunding.contract.Crowdfunding.get_donor_count[routing]() -> void:
+get_donor_count:
+    // smart_contracts/crowfunding/contract.py:42
+    // return ARC4UInt64(self.donor_count.value)
+    intc_1 // 0
+    bytec_2 // "donor_count"
+    app_global_get_ex
+    assert // check self.donor_count exists
+    itob
+    // smart_contracts/crowfunding/contract.py:39
+    // @abimethod()
+    bytec_0 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_0 // 1
+    return

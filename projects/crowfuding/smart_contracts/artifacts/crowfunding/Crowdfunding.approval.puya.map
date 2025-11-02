@@ -1,0 +1,978 @@
+{
+  "version": 3,
+  "sources": [
+    "../../crowfunding/contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAGA;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;AAwCK;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;;;;;;;;;;;AAhCA;;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAGU;;;AAAkB;;;;;;;;;AAAlB;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;;;AAAA;;AAHV;AAAA;AAAA;AAAA;AAAA;AAAA;AAKA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAIU;AAAA;;AAAoB;;AAApB;AAAP;AAGO;;AAAP;AAAA;AAGA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAGA;AAAA;AAAA;AAAA;AAA0B;AAA1B;AAAA;AAAA;AAAA;AAbH;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAoBqB;AAAA;AAAA;AAAA;AAAX;AAHV;AAAA;AAAA;AAAA;AAAA;AAAA;AAQqB;AAAA;AAAA;AAAA;AAAX;AAHV;AAAA;AAAA;AAAA;AAAA;AAAA",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "algopy.arc4.ARC4Contract.approval_program",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0"
+    },
+    "5": {
+      "op": "bytecblock 0x151f7c75 \"total_donations\" \"donor_count\""
+    },
+    "40": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "42": {
+      "op": "bz main___algopy_default_create@14",
+      "stack_out": []
+    },
+    "45": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "47": {
+      "op": "!",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "48": {
+      "error": "OnCompletion must be NoOp",
+      "op": "assert // OnCompletion must be NoOp",
+      "stack_out": []
+    },
+    "49": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "51": {
+      "op": "assert",
+      "stack_out": []
+    },
+    "52": {
+      "op": "pushbytess 0x02bece11 0x081c0213 0x9fd6c978 0x9c81d24e 0x8a856d47 // method \"hello(string)string\", method \"donate(pay)string\", method \"get_total_donations()uint64\", method \"get_donor_count()uint64\", method \"get_donation_info()string\"",
+      "defined_out": [
+        "Method(donate(pay)string)",
+        "Method(get_donation_info()string)",
+        "Method(get_donor_count()uint64)",
+        "Method(get_total_donations()uint64)",
+        "Method(hello(string)string)"
+      ],
+      "stack_out": [
+        "Method(hello(string)string)",
+        "Method(donate(pay)string)",
+        "Method(get_total_donations()uint64)",
+        "Method(get_donor_count()uint64)",
+        "Method(get_donation_info()string)"
+      ]
+    },
+    "79": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(donate(pay)string)",
+        "Method(get_donation_info()string)",
+        "Method(get_donor_count()uint64)",
+        "Method(get_total_donations()uint64)",
+        "Method(hello(string)string)",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "Method(hello(string)string)",
+        "Method(donate(pay)string)",
+        "Method(get_total_donations()uint64)",
+        "Method(get_donor_count()uint64)",
+        "Method(get_donation_info()string)",
+        "tmp%6#0"
+      ]
+    },
+    "82": {
+      "op": "match hello donate get_total_donations get_donor_count main_get_donation_info_route@10",
+      "stack_out": []
+    },
+    "94": {
+      "op": "err"
+    },
+    "95": {
+      "block": "main_get_donation_info_route@10",
+      "stack_in": [],
+      "op": "pushbytes 0x151f7c75446f6e6174696f6e20636f6e74726163742069732061637469766521",
+      "defined_out": [
+        "0x151f7c75446f6e6174696f6e20636f6e74726163742069732061637469766521"
+      ],
+      "stack_out": [
+        "0x151f7c75446f6e6174696f6e20636f6e74726163742069732061637469766521"
+      ]
+    },
+    "129": {
+      "op": "log",
+      "stack_out": []
+    },
+    "130": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "131": {
+      "op": "return",
+      "stack_out": []
+    },
+    "132": {
+      "block": "main___algopy_default_create@14",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "134": {
+      "op": "!",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "135": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%9#0"
+      ]
+    },
+    "137": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "tmp%10#0"
+      ]
+    },
+    "138": {
+      "op": "&&",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "139": {
+      "error": "OnCompletion must be NoOp && can only call when creating",
+      "op": "assert // OnCompletion must be NoOp && can only call when creating",
+      "stack_out": []
+    },
+    "140": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "141": {
+      "op": "return",
+      "stack_out": []
+    },
+    "142": {
+      "subroutine": "smart_contracts.crowfunding.contract.Crowdfunding.hello[routing]",
+      "params": {},
+      "block": "hello",
+      "stack_in": [],
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0"
+      ]
+    },
+    "145": {
+      "op": "dup",
+      "defined_out": [
+        "name#0",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "name#0",
+        "name#0 (copy)"
+      ]
+    },
+    "146": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "name#0",
+        "name#0 (copy)"
+      ],
+      "stack_out": [
+        "name#0",
+        "name#0 (copy)",
+        "0"
+      ]
+    },
+    "147": {
+      "error": "invalid array length header",
+      "op": "extract_uint16 // on error: invalid array length header",
+      "defined_out": [
+        "aggregate%array_length%0#0",
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0",
+        "aggregate%array_length%0#0"
+      ]
+    },
+    "148": {
+      "op": "pushint 2 // 2",
+      "defined_out": [
+        "2",
+        "aggregate%array_length%0#0",
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0",
+        "aggregate%array_length%0#0",
+        "2"
+      ]
+    },
+    "150": {
+      "op": "+",
+      "defined_out": [
+        "add%0#0",
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0",
+        "add%0#0"
+      ]
+    },
+    "151": {
+      "op": "dig 1",
+      "stack_out": [
+        "name#0",
+        "add%0#0",
+        "name#0 (copy)"
+      ]
+    },
+    "153": {
+      "op": "len",
+      "defined_out": [
+        "add%0#0",
+        "len%0#0",
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0",
+        "add%0#0",
+        "len%0#0"
+      ]
+    },
+    "154": {
+      "op": "==",
+      "defined_out": [
+        "eq%0#0",
+        "name#0"
+      ],
+      "stack_out": [
+        "name#0",
+        "eq%0#0"
+      ]
+    },
+    "155": {
+      "error": "invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "op": "assert // invalid number of bytes for arc4.dynamic_array<arc4.uint8>",
+      "stack_out": [
+        "name#0"
+      ]
+    },
+    "156": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "extract_to_end%0#0"
+      ],
+      "stack_out": [
+        "extract_to_end%0#0"
+      ]
+    },
+    "159": {
+      "op": "pushbytes 0x48656c6c6f2c20",
+      "defined_out": [
+        "0x48656c6c6f2c20",
+        "extract_to_end%0#0"
+      ],
+      "stack_out": [
+        "extract_to_end%0#0",
+        "0x48656c6c6f2c20"
+      ]
+    },
+    "168": {
+      "op": "swap",
+      "stack_out": [
+        "0x48656c6c6f2c20",
+        "extract_to_end%0#0"
+      ]
+    },
+    "169": {
+      "error": "max array length exceeded",
+      "op": "concat // on error: max array length exceeded",
+      "defined_out": [
+        "concat%0#0"
+      ],
+      "stack_out": [
+        "concat%0#0"
+      ]
+    },
+    "170": {
+      "op": "dup",
+      "defined_out": [
+        "concat%0#0",
+        "concat%0#0 (copy)"
+      ],
+      "stack_out": [
+        "concat%0#0",
+        "concat%0#0 (copy)"
+      ]
+    },
+    "171": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "concat%0#0",
+        "extract_to_end%1#0"
+      ],
+      "stack_out": [
+        "concat%0#0",
+        "extract_to_end%1#0"
+      ]
+    },
+    "174": {
+      "op": "len",
+      "stack_out": [
+        "concat%0#0",
+        "len%0#0"
+      ]
+    },
+    "175": {
+      "op": "itob",
+      "defined_out": [
+        "as_bytes%0#0",
+        "concat%0#0"
+      ],
+      "stack_out": [
+        "concat%0#0",
+        "as_bytes%0#0"
+      ]
+    },
+    "176": {
+      "op": "extract 6 2",
+      "defined_out": [
+        "as_u16_bytes%0#0",
+        "concat%0#0"
+      ],
+      "stack_out": [
+        "concat%0#0",
+        "as_u16_bytes%0#0"
+      ]
+    },
+    "179": {
+      "op": "replace2 0",
+      "defined_out": [
+        "replace%0#0"
+      ],
+      "stack_out": [
+        "replace%0#0"
+      ]
+    },
+    "181": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "replace%0#0"
+      ],
+      "stack_out": [
+        "replace%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "182": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "replace%0#0"
+      ]
+    },
+    "183": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "184": {
+      "op": "log",
+      "stack_out": []
+    },
+    "185": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "186": {
+      "op": "return",
+      "stack_out": []
+    },
+    "187": {
+      "subroutine": "smart_contracts.crowfunding.contract.Crowdfunding.donate[routing]",
+      "params": {},
+      "block": "donate",
+      "stack_in": [],
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "189": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "1"
+      ]
+    },
+    "190": {
+      "op": "-",
+      "defined_out": [
+        "payment#0"
+      ],
+      "stack_out": [
+        "payment#0"
+      ]
+    },
+    "191": {
+      "op": "dup",
+      "defined_out": [
+        "payment#0",
+        "payment#0 (copy)"
+      ],
+      "stack_out": [
+        "payment#0",
+        "payment#0 (copy)"
+      ]
+    },
+    "192": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_type%0#0",
+        "payment#0"
+      ],
+      "stack_out": [
+        "payment#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "194": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_type%0#0",
+        "pay",
+        "payment#0"
+      ],
+      "stack_out": [
+        "payment#0",
+        "gtxn_type%0#0",
+        "pay"
+      ]
+    },
+    "195": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_type_matches%0#0",
+        "payment#0"
+      ],
+      "stack_out": [
+        "payment#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "196": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "payment#0"
+      ]
+    },
+    "197": {
+      "op": "dup",
+      "stack_out": [
+        "payment#0",
+        "payment#0 (copy)"
+      ]
+    },
+    "198": {
+      "op": "gtxns Receiver",
+      "defined_out": [
+        "payment#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "payment#0",
+        "tmp%0#1"
+      ]
+    },
+    "200": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "payment#0",
+        "tmp%0#1",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "payment#0",
+        "tmp%0#1",
+        "tmp%1#1"
+      ]
+    },
+    "202": {
+      "op": "==",
+      "defined_out": [
+        "payment#0",
+        "tmp%2#1"
+      ],
+      "stack_out": [
+        "payment#0",
+        "tmp%2#1"
+      ]
+    },
+    "203": {
+      "error": "Payment must be to this contract",
+      "op": "assert // Payment must be to this contract",
+      "stack_out": [
+        "payment#0"
+      ]
+    },
+    "204": {
+      "op": "gtxns Amount",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "206": {
+      "op": "dup",
+      "defined_out": [
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "tmp%3#0 (copy)"
+      ]
+    },
+    "207": {
+      "error": "Donation must be greater than 0",
+      "op": "assert // Donation must be greater than 0",
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "208": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "0"
+      ]
+    },
+    "209": {
+      "op": "bytec_1 // \"total_donations\"",
+      "defined_out": [
+        "\"total_donations\"",
+        "0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "0",
+        "\"total_donations\""
+      ]
+    },
+    "210": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "211": {
+      "error": "check self.total_donations exists",
+      "op": "assert // check self.total_donations exists",
+      "stack_out": [
+        "tmp%3#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "212": {
+      "op": "+",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "213": {
+      "op": "bytec_1 // \"total_donations\"",
+      "stack_out": [
+        "tmp%6#0",
+        "\"total_donations\""
+      ]
+    },
+    "214": {
+      "op": "swap",
+      "stack_out": [
+        "\"total_donations\"",
+        "tmp%6#0"
+      ]
+    },
+    "215": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "216": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "217": {
+      "op": "bytec_2 // \"donor_count\"",
+      "defined_out": [
+        "\"donor_count\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"donor_count\""
+      ]
+    },
+    "218": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "219": {
+      "error": "check self.donor_count exists",
+      "op": "assert // check self.donor_count exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "220": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "221": {
+      "op": "+",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "222": {
+      "op": "bytec_2 // \"donor_count\"",
+      "stack_out": [
+        "tmp%7#0",
+        "\"donor_count\""
+      ]
+    },
+    "223": {
+      "op": "swap",
+      "stack_out": [
+        "\"donor_count\"",
+        "tmp%7#0"
+      ]
+    },
+    "224": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "225": {
+      "op": "pushbytes 0x151f7c755468616e6b20796f7520666f7220796f757220646f6e6174696f6e21",
+      "defined_out": [
+        "0x151f7c755468616e6b20796f7520666f7220796f757220646f6e6174696f6e21"
+      ],
+      "stack_out": [
+        "0x151f7c755468616e6b20796f7520666f7220796f757220646f6e6174696f6e21"
+      ]
+    },
+    "259": {
+      "op": "log",
+      "stack_out": []
+    },
+    "260": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "1"
+      ]
+    },
+    "261": {
+      "op": "return",
+      "stack_out": []
+    },
+    "262": {
+      "subroutine": "smart_contracts.crowfunding.contract.Crowdfunding.get_total_donations[routing]",
+      "params": {},
+      "block": "get_total_donations",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "263": {
+      "op": "bytec_1 // \"total_donations\"",
+      "defined_out": [
+        "\"total_donations\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"total_donations\""
+      ]
+    },
+    "264": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "265": {
+      "error": "check self.total_donations exists",
+      "op": "assert // check self.total_donations exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "266": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "aggregate%val_as_bytes%0#0"
+      ]
+    },
+    "267": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "aggregate%val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "aggregate%val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "268": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "aggregate%val_as_bytes%0#0"
+      ]
+    },
+    "269": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "270": {
+      "op": "log",
+      "stack_out": []
+    },
+    "271": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "272": {
+      "op": "return",
+      "stack_out": []
+    },
+    "273": {
+      "subroutine": "smart_contracts.crowfunding.contract.Crowdfunding.get_donor_count[routing]",
+      "params": {},
+      "block": "get_donor_count",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "274": {
+      "op": "bytec_2 // \"donor_count\"",
+      "defined_out": [
+        "\"donor_count\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"donor_count\""
+      ]
+    },
+    "275": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "276": {
+      "error": "check self.donor_count exists",
+      "op": "assert // check self.donor_count exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "277": {
+      "op": "itob",
+      "defined_out": [
+        "aggregate%val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "aggregate%val_as_bytes%0#0"
+      ]
+    },
+    "278": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "aggregate%val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "aggregate%val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "279": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "aggregate%val_as_bytes%0#0"
+      ]
+    },
+    "280": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "281": {
+      "op": "log",
+      "stack_out": []
+    },
+    "282": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "283": {
+      "op": "return",
+      "stack_out": []
+    }
+  }
+}
